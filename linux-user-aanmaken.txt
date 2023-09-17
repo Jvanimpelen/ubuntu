@@ -1,0 +1,23 @@
+############################################################################################################################################
+# uitvoeren na installatie van een container of VM
+# command to create user john
+# after the comaand is run fill the password for john and confirm the password
+adduser john 
+# add user to the group sudo
+usermod -aG sudo john
+# op centos:
+usermod -aG root john
+# check if the user is added to the sudo group
+groups john
+
+# uitvoeren op de ubuntu management server 
+# key toevoegen aan user certificaat store 
+# john@192.168.2.91 moet verandert worden naar het ip adres van de server.
+
+cat ~/.ssh/id_ed25519.pub | ssh john@192.168.2.91 "mkdir ~/.ssh/ ; touch ~/.ssh/authorized_keys ; cat >> ~/.ssh/authorized_keys"
+
+# nu het runbook uitvoeren om de bootstrap yml te done let wel dat de git lokaal in de ~/home/ubuntu staat en het commando vanuit deze map uitgevoerd wordt. 
+# -u is de username
+# --ask-become-pass om een wachtwoord te vragen.
+
+ansible-playbook -u john --ask-become-pass bootstrap.yml
