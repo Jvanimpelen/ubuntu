@@ -1,13 +1,20 @@
 [web_servers]
-192.168.2.160
-192.168.2.161
+192.168.2.160 # portainer
+# 192.168.2.161 # podman
+# 192.168.2.164
 
 [db_servers]
-192.168.2.162
+# 192.168.2.162
 
 [file_servers]
-192.168.2.113
-192.168.2.44
+192.168.2.113 # laptop
+192.168.2.44 # magic
+192.168.2.159 # um773
+# 192.168.2.163
+192.168.2.42 # kubernetes01 controler
+192.168.2.170 # k8s-node1 clusternode
+192.168.2.171 # k8s-node2 clusternode
+192.168.2.172 # k8s-node3 clusternode
 
 [workstations]
 192.168.2.72
